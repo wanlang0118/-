@@ -9,6 +9,8 @@ import os
 import sys
 import shutil
 from pathlib import Path
+import mimetypes
+mimetypes.add_type('text/css', '.css')
 
 # ==================== 在导入任何模块之前先迁移数据库 ====================
 def _migrate_database_files_early():
