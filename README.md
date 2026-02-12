@@ -5,6 +5,7 @@
 ## 🏗️ 技术架构
 
 ### 核心技术栈
+
 - **后端框架**: FastAPI + Python 3.11+ 异步编程
 - **数据库**: SQLite 3 + 多用户数据隔离 + 自动迁移
 - **前端**: Bootstrap 5 + Vanilla JavaScript + 响应式设计
@@ -14,6 +15,7 @@
 - **安全认证**: JWT + 图形验证码 + 邮箱验证 + 权限控制
 
 ### 系统架构特点
+
 - **微服务设计**: 模块化架构，易于维护和扩展
 - **异步处理**: 基于asyncio的高性能异步处理
 - **多用户隔离**: 完全的数据隔离和权限控制
@@ -24,6 +26,7 @@
 ## ✨ 核心特性
 
 ### 🔐 多用户系统
+
 - **用户注册登录** - 支持邮箱验证码注册，图形验证码保护
 - **数据完全隔离** - 每个用户的数据独立存储，互不干扰
 - **权限管理** - 严格的用户权限控制和JWT认证
@@ -31,12 +34,14 @@
 - **授权期限管理** - 核心滑块验证模块包含授权期限验证，确保合规使用
 
 ### 📱 多账号管理
+
 - **无限账号支持** - 每个用户可管理多个闲鱼账号
 - **独立运行** - 每个账号独立监控，互不影响
 - **实时状态** - 账号连接状态实时监控
 - **批量操作** - 支持批量启动、停止账号任务
 
 ### 🤖 智能回复系统
+
 - **关键词匹配** - 支持精确关键词匹配回复
 - **指定商品回复** - 支持为特定商品设置专门的回复内容，优先级最高
 - **商品专用关键词** - 支持为特定商品设置专用关键词回复
@@ -47,6 +52,7 @@
 - **优先级策略** - 指定商品回复 > 商品专用关键词 > 通用关键词 > 默认回复 > AI回复
 
 ### 🚚 自动发货功能
+
 - **智能匹配** - 基于商品信息自动匹配发货规则
 - **多规格支持** - 支持同一商品的不同规格自动匹配对应卡券
 - **精确匹配+兜底机制** - 优先精确匹配规格，失败时自动降级到普通卡券
@@ -61,6 +67,7 @@
 - **发货统计** - 完整的发货记录和统计功能
 
 ### 🛍️ 商品管理
+
 - **自动收集** - 消息触发时自动收集商品信息
 - **API获取** - 通过闲鱼API获取完整商品详情
 - **多规格支持** - 支持多规格商品的规格信息管理
@@ -68,6 +75,7 @@
 - **智能去重** - 自动去重，避免重复存储
 
 ### 🔍 商品搜索功能
+
 - **真实数据获取** - 基于Playwright技术获取真实闲鱼商品数据
 - **智能排序** - 按"人想要"数量自动倒序排列
 - **多页搜索** - 支持一次性获取多页商品数据
@@ -75,11 +83,13 @@
 - **商品详情** - 支持查看完整商品详情信息
 
 ### 📊 系统监控
+
 - **实时日志** - 完整的操作日志记录和查看
 - **性能监控** - 系统资源使用情况监控
 - **健康检查** - 服务状态健康检查
 
 ### 📁 数据管理
+
 - **Excel导入导出** - 支持关键词数据的Excel格式导入导出
 - **模板生成** - 自动生成包含示例数据的导入模板
 - **批量操作** - 支持批量添加、更新关键词数据
@@ -149,8 +159,8 @@ xianyu-auto-reply/
 │       ├── uploads/
 │       │   └── images/            # 上传的图片文件
 │       ├── xianyu_js_version_2.js # 闲鱼JavaScript工具库
-│       ├── wechat-group.png       # 微信群二维码
-│       └── qq-group.png           # QQ群二维码
+│       ├── wechat-group.png       # 微信打赏二维码
+│       └── qq-group.png           # QQ打赏二维码
 ├── 🐳 Docker部署
 │   ├── Dockerfile                 # Docker镜像构建文件（优化版）
 │   ├── Dockerfile-cn             # 国内优化版Docker镜像构建文件
@@ -185,6 +195,7 @@ xianyu-auto-reply/
 ### 2025年1月更新
 
 **🔥 性能与安全增强**
+
 - ✅ 新增 Nuitka 二进制编译支持，核心模块可编译为 .pyd/.so 提升性能和安全性
 - ✅ 滑块验证模块增加授权期限验证机制，确保合规使用
 - ✅ Docker 构建优化，自动编译二进制模块，提升容器启动效率
@@ -192,34 +203,38 @@ xianyu-auto-reply/
 - ✅ 修复滑块验证模块内存泄漏问题，浏览器资源正确释放
 
 **📦 数据管理优化**
+
 - ✅ 数据库文件统一迁移到 `data/` 目录，更好的组织和管理
 - ✅ 启动时自动检测并迁移旧数据库文件，无需手动操作
 - ✅ 备份文件自动整理到数据目录，便于集中管理
 - ✅ Docker挂载更简洁，一个data目录包含所有数据
 
 **🛠️ 配置文件优化**
+
 - ✅ 完善 `.gitignore`，新增编译产物、浏览器缓存等规则
 - ✅ 完善 `.dockerignore`，优化Docker构建速度和镜像体积
 - ✅ 增强 `entrypoint.sh`，添加环境验证和详细启动日志
 - ✅ 清理测试文件和临时文件，保持代码库整洁
 
 **📦 依赖管理**
+
 - ✅ `requirements.txt` 优化，移除Python内置模块，按功能分类
 - ✅ 添加 Nuitka 编译工具链（可选）
 - ✅ 详细的依赖说明和安装指南
 
 **🐛 Bug修复**
+
 - ✅ 修复浏览器资源泄漏问题，Docker容器RAM使用稳定
 - ✅ 优化历史记录存储，减少90%磁盘和内存占用
 - ✅ 添加析构函数确保资源释放
 
 **🏗️ 多架构支持**
+
 - ✅ Docker镜像支持AMD64和ARM64双架构
 - ✅ GitHub Actions自动构建并推送到双镜像仓库
 - ✅ 支持Oracle Cloud、AWS Graviton等ARM服务器
 - ✅ Docker自动选择匹配的架构，无需手动指定
 - ✅ 国内外双镜像源，确保下载速度
-
 
 ## 🚀 快速开始
 
@@ -228,6 +243,7 @@ xianyu-auto-reply/
 ### 方式一：Docker 一键部署（最简单）⭐
 
 **国内用户（阿里云镜像，推荐）**：
+
 ```bash
 # 1. 创建数据目录
 mkdir -p xianyu-auto-reply
@@ -238,13 +254,14 @@ docker run -d \
   --restart always \
   -v $PWD/xianyu-auto-reply/:/app/data/ \
   --name xianyu-auto-reply \
-  registry.cn-shanghai.aliyuncs.com/zhinian-software/xianyu-auto-reply:latest
+  registry.cn-shanghai.aliyuncs.com/wanlang0118/xian-yu-guan-li:latest
 
 # 3. 访问系统
 # http://localhost:8080
 ```
 
 **国际用户（Docker Hub镜像）**：
+
 ```bash
 # 使用Docker Hub国际镜像
 docker run -d \
@@ -252,10 +269,11 @@ docker run -d \
   --restart always \
   -v $PWD/xianyu-auto-reply/:/app/data/ \
   --name xianyu-auto-reply \
-  zhinianblog/xianyu-auto-reply:latest
+  wanlang0118/xian-yu-guan-li:latest
 ```
 
 **Windows用户**：
+
 ```powershell
 # 创建数据目录
 mkdir xianyu-auto-reply
@@ -264,10 +282,11 @@ mkdir xianyu-auto-reply
 docker run -d -p 8080:8080 --restart always -v %cd%/xianyu-auto-reply/:/app/data/ --name xianyu-auto-reply registry.cn-shanghai.aliyuncs.com/zhinian-software/xianyu-auto-reply:latest
 
 # 国际用户（Docker Hub）
-docker run -d -p 8080:8080 --restart always -v %cd%/xianyu-auto-reply/:/app/data/ --name xianyu-auto-reply zhinianblog/xianyu-auto-reply:latest
+docker run -d -p 8080:8080 --restart always -v %cd%/xianyu-auto-reply/:/app/data/ --name xianyu-auto-reply wanlang0118/xian-yu-guan-li:latest
 ```
 
 **ARM64服务器** (Oracle Cloud, AWS Graviton等)：
+
 ```bash
 # Docker会自动选择ARM64镜像，无需特殊配置
 docker run -d \
@@ -281,6 +300,7 @@ docker run -d \
 ### 方式二：从源码构建部署
 
 #### 🌍 国际版（推荐海外用户）
+
 ```bash
 # 1. 克隆项目
 git clone https://github.com/zhinianboke/xianyu-auto-reply.git
@@ -294,6 +314,7 @@ docker-compose up -d --build
 ```
 
 #### 🇨🇳 中国版（推荐国内用户）
+
 ```bash
 # 1. 克隆项目
 git clone https://github.com/zhinianboke/xianyu-auto-reply.git
@@ -307,6 +328,7 @@ docker-compose -f docker-compose-cn.yml up -d --build
 ```
 
 **Windows用户**：
+
 ```cmd
 # 国际版
 docker-compose up -d --build
@@ -342,30 +364,6 @@ python Start.py
 # http://localhost:8080
 ```
 
-### 📋 环境要求
-
-- **Python**: 3.11+
-- **Node.js**: 16+ (用于JavaScript执行)
-- **系统**: Windows/Linux/macOS
-- **架构**: x86_64 (amd64) / ARM64 (aarch64)
-- **内存**: 建议2GB+
-- **存储**: 建议10GB+
-- **Docker**: 20.10+ (Docker部署)
-- **Docker Compose**: 2.0+ (Docker部署)
-
-### 🖥️ 多架构支持
-
-**支持的架构**:
-- ✅ **linux/amd64** - Intel/AMD处理器（传统服务器、PC、虚拟机）
-- ✅ **linux/arm64** - ARM64处理器（ARM服务器、树莓派4+、Apple M系列）
-
-**自动构建**: GitHub Actions自动构建并推送多架构镜像到两个镜像仓库，Docker会自动选择匹配的架构
-
-
-### ⚙️ 环境变量配置（可选）
-
-系统支持通过环境变量进行配置，主要配置项包括：
-
 ```bash
 # 基础配置
 WEB_PORT=8080                          # Web服务端口
@@ -398,73 +396,30 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 
 > 💡 **提示**：所有配置项都有默认值，可根据需要选择性配置
 
-
-### 🌐 访问系统
-
-部署完成后，您可以通过以下方式访问系统：
-
-- **Web管理界面**：http://localhost:8080
-- **默认管理员账号**：
-  - 用户名：`admin`
-  - 密码：`admin123`
-- **API文档**：http://localhost:8080/docs
-- **健康检查**：http://localhost:8080/health
-
-> ⚠️ **安全提示**：首次登录后请立即修改默认密码！
-
-
-## 📋 系统使用
-
-### 1. 用户注册
-- 访问 `http://localhost:8080/register.html`
-- 填写用户信息，完成邮箱验证
-- 输入图形验证码完成注册
-
-### 2. 添加闲鱼账号
-- 登录系统后进入主界面
-- 点击"添加新账号"
-- 输入账号ID和完整的Cookie值
-- 系统自动启动账号监控任务
-
-### 3. 配置自动回复
-- **关键词回复**：设置关键词和对应回复内容
-- **AI回复**：配置OpenAI API密钥启用智能回复
-- **默认回复**：设置未匹配时的默认回复
-
-### 4. 设置自动发货
-- 添加发货规则，设置商品关键词和发货内容
-- 支持文本内容和卡密文件两种发货方式
-- 系统检测到付款消息时自动确认发货并自动发货
-
-### 5. 使用商品搜索功能
-- 访问商品搜索页面（需要登录）
-- 输入搜索关键词和查询页数
-- 系统自动获取真实闲鱼商品数据
-- 商品按"人想要"数量自动排序
-- 支持查看商品详情和跳转到闲鱼页面
-
-
-
 ## 📁 核心文件功能说明
 
 ### 🚀 核心启动模块
+
 - **`Start.py`** - 项目启动入口，初始化CookieManager和FastAPI服务，从数据库加载账号任务并启动后台API服务，支持环境变量配置
 - **`XianyuAutoAsync.py`** - 闲鱼WebSocket连接核心，处理消息收发、自动回复、指定商品回复、自动发货、商品信息收集、AI回复
 - **`reply_server.py`** - FastAPI Web服务器，提供完整的管理界面和RESTful API接口，支持多用户系统、JWT认证、权限管理
 - **`cookie_manager.py`** - 多账号Cookie管理器，负责账号任务的启动、停止、状态管理和线程安全操作，支持数据库持久化
 
 ### 🗄️ 数据和配置管理
+
 - **`db_manager.py`** - SQLite数据库管理器，支持多用户数据隔离、自动迁移、版本管理、完整的CRUD操作、邮箱验证、系统设置
 - **`config.py`** - 全局配置文件管理器，加载YAML配置和环境变量，提供配置项访问接口，支持动态配置更新
 - **`global_config.yml`** - 全局配置文件，包含WebSocket、API、自动回复、AI、通知等所有系统配置项
 
 ### 🤖 智能功能模块
+
 - **`ai_reply_engine.py`** - AI智能回复引擎，支持OpenAI、通义千问等多种AI模型，意图识别、上下文管理、个性化回复
 - **`secure_confirm_ultra.py`** - 自动确认发货模块，采用多层加密保护，调用闲鱼API确认发货状态，支持锁机制防并发
 - **`secure_freeshipping_ultra.py`** - 自动免拼发货模块，支持批量处理、异常恢复、智能匹配、规格识别
 - **`file_log_collector.py`** - 实时日志收集器，提供Web界面日志查看、搜索、过滤、下载和管理功能
 
 ### 🛠️ 工具模块 (`utils/`)
+
 - **`xianyu_utils.py`** - 闲鱼API核心工具，包含加密算法、签名生成、数据解析、Cookie处理、请求封装
 - **`message_utils.py`** - 消息处理工具，格式化消息内容、变量替换、内容过滤、模板渲染、表情处理
 - **`ws_utils.py`** - WebSocket客户端封装，处理连接管理、心跳检测、重连机制、消息队列、异常恢复
@@ -477,6 +432,7 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 - **`refresh_util.py`** - Cookie刷新工具，自动检测和刷新过期的Cookie，保持账号连接状态
 
 ### 🌐 前端界面 (`static/`)
+
 - **`index.html`** - 主管理界面，集成所有功能模块：账号管理、关键词管理、商品管理、发货管理、系统监控、用户管理等
 - **`login.html`** - 用户登录页面，支持图形验证码、记住登录状态、多重安全验证
 - **`register.html`** - 用户注册页面，支持邮箱验证码、实时验证、密码强度检测
@@ -487,6 +443,7 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 - **`uploads/images/`** - 图片上传目录，支持发货图片和其他媒体文件存储
 
 ### 🐳 部署配置
+
 - **`Dockerfile`** - Docker镜像构建文件，基于Python 3.11-slim，包含Playwright浏览器、C编译器（支持Nuitka编译）、系统依赖，支持无头模式运行，优化构建层级，自动编译性能关键模块
 - **`Dockerfile-cn`** - 国内优化版Docker镜像构建文件，使用国内镜像源加速构建，适合国内网络环境
 - **`docker-compose.yml`** - Docker Compose配置，支持一键部署、完整环境变量配置、资源限制、健康检查、可选Nginx代理
@@ -602,13 +559,15 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 **重要**：为了系统安全，强烈建议修改默认管理员密码！
 
 #### 默认密码
+
 - **用户名**：`admin`
 - **默认密码**：`admin123`
 - **初始化机制**：首次创建数据库时自动创建admin用户
 
-
 ### 全局配置文件
+
 `global_config.yml` 包含详细的系统配置，支持：
+
 - WebSocket连接参数
 - API接口配置
 - 自动回复设置
@@ -622,6 +581,7 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 本项目的滑块验证模块采用**二进制分发**方式：
 
 **🔐 源代码保护**
+
 - ✅ 核心源代码保存在**私有仓库**中（不公开）
 - ✅ 通过GitHub Actions自动编译所有平台
 - ✅ 主项目只包含编译后的二进制文件
@@ -629,6 +589,7 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 **📦 二进制文件**
 
 项目已包含预编译的二进制模块（`utils/` 目录）：
+
 - Windows: `xianyu_slider_stealth.cp3XX-win_amd64.pyd`
 - Linux: `xianyu_slider_stealth.cpython-3XX-x86_64-linux-gnu.so`
 - macOS: `xianyu_slider_stealth.cpython-3XX-darwin.so`
@@ -637,11 +598,13 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 **🔄 更新二进制模块**
 
 如需更新滑块验证模块：
+
 1. 从私有仓库的 Releases 页面下载最新版本
 2. 解压并复制到 `utils/` 目录
 3. 提交更新到主项目
 
 **⚡ 模块优势**
+
 - 🚀 高性能：编译后执行效率更高
 - 🔒 代码保护：二进制文件难以反编译
 - 🛡️ 授权管理：内置授权期限验证
@@ -650,18 +613,21 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 **注意**: 滑块验证模块源代码不在此项目中，如需修改请联系维护者。
 
 ### AI回复配置
+
 1. 在用户设置中配置OpenAI API密钥
 2. 选择AI模型（支持GPT-3.5、GPT-4、通义千问等）
 3. 设置回复策略和提示词
 4. 启用AI回复功能
 
 ### 自动发货规则
+
 1. 进入发货管理页面
 2. 添加发货规则，设置商品关键词
 3. 上传卡密文件或输入发货内容
 4. 系统自动匹配商品并发货
 
 ### 商品信息管理
+
 1. 系统自动收集消息中的商品信息
 2. 通过API获取完整商品详情
 3. 支持手动编辑商品信息
@@ -670,6 +636,7 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 ## 📊 监控和维护
 
 ### 日志管理
+
 - **实时日志**：Web界面查看实时系统日志
 - **日志文件**：`logs/` 目录下的按日期分割的日志文件
 - **日志级别**：支持DEBUG、INFO、WARNING、ERROR级别
@@ -677,6 +644,7 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 ### Docker容器管理
 
 **查看容器日志**：
+
 ```bash
 # 实时查看日志
 docker logs -f xianyu-auto-reply
@@ -688,6 +656,7 @@ docker logs --tail 100 xianyu-auto-reply
 **更新到最新版本**：
 
 国内用户（阿里云镜像）：
+
 ```bash
 # 1. 停止并删除旧容器
 docker stop xianyu-auto-reply
@@ -707,6 +676,7 @@ docker run -d -p 8080:8080 --restart always \
 ```
 
 国际用户（Docker Hub）：
+
 ```bash
 # 1. 停止并删除旧容器
 docker stop xianyu-auto-reply
@@ -716,28 +686,29 @@ docker rm xianyu-auto-reply
 docker rmi $(docker images --filter "reference=*xianyu-auto-reply*" -q)
 
 # 3. 拉取最新镜像
-docker pull zhinianblog/xianyu-auto-reply:latest
+docker pull wanlang0118/xian-yu-guan-li:latest
 
 # 4. 启动新容器
 docker run -d -p 8080:8080 --restart always \
   -v $PWD/xianyu-auto-reply/:/app/data/ \
   --name xianyu-auto-reply \
-  zhinianblog/xianyu-auto-reply:latest
+  wanlang0118/xian-yu-guan-li:latest
 ```
 
 **验证多架构镜像**：
+
 ```bash
 # 查看镜像支持的架构
 docker manifest inspect registry.cn-shanghai.aliyuncs.com/zhinian-software/xianyu-auto-reply:latest | grep architecture
 
 # 或Docker Hub镜像
-docker manifest inspect zhinianblog/xianyu-auto-reply:latest | grep architecture
+docker manifest inspect wanlang0118/xian-yu-guan-li:latest | grep architecture
 
 # 应该显示: "architecture": "amd64" 和 "architecture": "arm64"
 ```
 
-
 **容器重启**：
+
 ```bash
 # 重启容器
 docker restart xianyu-auto-reply
@@ -762,12 +733,14 @@ docker start xianyu-auto-reply
 ## 🛡️ 技术特性
 
 ### 🏗️ 架构设计
+
 - **微服务架构**：模块化设计，易于维护和扩展
 - **异步编程**：基于asyncio的高性能异步处理
 - **WebSocket长连接**：实时消息处理，低延迟响应
 - **RESTful API**：标准化的API接口设计
 
 ### 🔧 技术栈
+
 - **后端框架**：FastAPI + Uvicorn
 - **数据库**：SQLite（轻量级，无需额外配置）
 - **前端技术**：原生HTML/CSS/JavaScript + Bootstrap
@@ -775,38 +748,43 @@ docker start xianyu-auto-reply
 - **容器化**：Docker + Docker Compose
 
 ### 🚀 性能优化
+
 - **连接池管理**：高效的数据库连接管理
 - **异步处理**：非阻塞I/O操作
 - **内存优化**：智能缓存和垃圾回收
 - **资源限制**：Docker容器资源限制和监控
 
 ### 🔐 安全机制
+
 - **多层加密**：敏感代码采用5层编码混淆
 - **变量名随机化**：防止静态分析
 - **运行时解密**：代码在内存中动态解密执行
 - **防重复机制**：智能防重复确认和发货
 
-
 ### 🔧 代码贡献
+
 - Fork 项目到您的GitHub账号
 - 创建功能分支：`git checkout -b feature/your-feature`
 - 提交更改：`git commit -am 'Add some feature'`
 - 推送分支：`git push origin feature/your-feature`
 - 提交 Pull Request
 
-
 ## ❓ 常见问题
 
 ### 1. 端口被占用
+
 如果8080端口被占用，可以修改 `global_config.yml` 文件中的 `AUTO_REPLY.api.port` 配置，或者在 Docker 启动时通过环境变量 `WEB_PORT` 指定端口。
 
 ### 2. 数据库连接失败
+
 检查数据库文件权限，确保应用有读写权限。
 
 ### 3. WebSocket连接失败
+
 检查防火墙设置，确保WebSocket端口可以访问。
 
 ### 4. Shell脚本执行错误（Linux/macOS）
+
 如果遇到 `bad interpreter` 错误，说明脚本的行结束符格式不正确：
 
 ```bash
@@ -820,6 +798,7 @@ bash docker-deploy.sh
 ```
 
 ### 5. Docker容器启动失败
+
 如果遇到 `exec /app/entrypoint.sh: no such file or directory` 错误：
 
 ```bash
@@ -830,6 +809,7 @@ docker-compose up -d
 ```
 
 ### 6. 预构建镜像拉取失败
+
 如果无法拉取预构建镜像，可以使用源码构建：
 
 ```bash
@@ -840,6 +820,7 @@ cd xianyu-auto-reply
 ```
 
 ### 7. Windows系统部署
+
 Windows用户推荐使用批处理脚本：
 
 ```cmd
@@ -850,7 +831,6 @@ docker-deploy.bat
 powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 ```
 
-
 ## 🧸 特别鸣谢
 
 本项目参考了以下开源项目：
@@ -858,7 +838,6 @@ powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 - **[XianYuApis](https://github.com/cv-cat/XianYuApis)** - 提供了闲鱼API接口的技术参考
 - **[XianyuAutoAgent](https://github.com/shaxiu/XianyuAutoAgent)** - 提供了自动化处理的实现思路
 - **[myfish](https://github.com/Kaguya233qwq/myfish)** - 提供了扫码登录的实现思路
-
 
 感谢这些优秀的开源项目为本项目的开发提供了宝贵的参考和启发！
 
@@ -903,7 +882,6 @@ powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 3. **责任限制** - 作者不对使用本项目造成的任何损失承担责任
 4. **合规使用** - 使用者需确保使用行为符合当地法律法规
 
-
 ## 📊 项目统计
 
 - **代码行数**: 10,000+ 行
@@ -917,6 +895,7 @@ powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 ## 🎯 项目优势
 
 ### 技术优势
+
 - ✅ **现代化架构**: 基于FastAPI + Python 3.11+异步编程
 - ✅ **容器化部署**: Docker + Docker Compose一键部署
 - ✅ **多用户系统**: 完整的用户注册、登录、权限管理
@@ -924,6 +903,7 @@ powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 - ✅ **实时通信**: WebSocket实时消息处理和状态监控
 
 ### 功能优势
+
 - ✅ **智能回复**: 关键词匹配 + AI智能回复 + 优先级策略
 - ✅ **自动发货**: 多种发货方式，支持规格匹配和延时发货
 - ✅ **商品管理**: 自动收集商品信息，支持批量操作
@@ -931,6 +911,7 @@ powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 - ✅ **安全保护**: 多层加密，防重复机制，异常恢复
 
 ### 运维优势
+
 - ✅ **日志系统**: 完整的日志记录和实时查看
 - ✅ **监控告警**: 账号状态监控和异常告警
 - ✅ **数据备份**: 自动数据备份和恢复机制
@@ -941,14 +922,17 @@ powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 ## 📊 用户统计说明
 
 ### 统计目的
+
 为了了解有多少人在使用这个系统，系统会发送匿名的用户统计信息。
 
 ### 收集的信息
+
 - **匿名ID**: 基于机器特征生成的唯一标识符（重启不变）
 - **操作系统**: 系统类型（如Windows、Linux）
 - **版本信息**: 软件版本号
 
 ### 隐私保护
+
 - ✅ **完全匿名**: 不收集任何个人身份信息
 - ✅ **数据安全**: 不收集账号、密码、关键词等敏感信息
 - ✅ **本地优先**: 所有业务数据仅存储在本地
@@ -957,6 +941,7 @@ powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 ### 查看统计信息
 
 #### 方式1: Python统计服务器
+
 ```bash
 # 部署Python统计服务器
 python simple_stats_server.py
@@ -966,6 +951,7 @@ curl http://localhost:8081/stats
 ```
 
 #### 方式2: PHP统计服务器
+
 ```bash
 # 将index.php部署到Web服务器（如Apache/Nginx）
 # 访问统计接口
@@ -976,6 +962,7 @@ python test_php_stats.py
 ```
 
 **PHP统计服务器特点**:
+
 - 数据保存在`user_stats.txt`文件中
 - 支持用户数据更新（anonymous_id作为key）
 - 自动生成统计摘要

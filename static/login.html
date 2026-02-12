@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
       --success-color: #198754;
       --danger-color: #dc3545;
     }
-    
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -22,37 +23,37 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .login-container {
       background: white;
       border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       width: 100%;
       max-width: 400px;
     }
-    
+
     .login-header {
       background: var(--primary-color);
       color: white;
       padding: 30px;
       text-align: center;
     }
-    
+
     .login-header h2 {
       margin: 0;
       font-weight: 600;
     }
-    
+
     .login-header p {
       margin: 10px 0 0 0;
       opacity: 0.9;
     }
-    
+
     .login-body {
       padding: 40px 30px;
     }
-    
+
     .form-control {
       border-radius: 10px;
       border: 2px solid #e9ecef;
@@ -60,12 +61,12 @@
       font-size: 16px;
       transition: all 0.3s ease;
     }
-    
+
     .form-control:focus {
       border-color: var(--primary-color);
       box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     }
-    
+
     .btn-login {
       background: var(--primary-color);
       border: none;
@@ -76,17 +77,17 @@
       width: 100%;
       transition: all 0.3s ease;
     }
-    
+
     .btn-login:hover {
       background: #0b5ed7;
       transform: translateY(-2px);
     }
-    
+
     .input-group {
       position: relative;
       margin-bottom: 20px;
     }
-    
+
     .input-group i {
       position: absolute;
       left: 15px;
@@ -95,25 +96,26 @@
       color: var(--secondary-color);
       z-index: 10;
     }
-    
+
     .input-group .form-control {
       padding-left: 45px;
     }
-    
+
     .alert {
       border-radius: 10px;
       border: none;
     }
-    
+
     .loading {
       display: none;
     }
-    
+
     .loading.show {
       display: inline-block;
     }
   </style>
 </head>
+
 <body>
   <div class="login-container">
     <div class="login-header">
@@ -121,7 +123,7 @@
       <h2>闲鱼自动回复</h2>
       <p>管理系统登录</p>
     </div>
-    
+
     <div class="login-body">
       <!-- 登录方式选择 -->
       <div class="login-tabs mb-4">
@@ -181,9 +183,10 @@
               <div class="col-5">
                 <div class="captcha-container" style="position: relative;">
                   <img id="captchaImage" src="" alt="图形验证码"
-                       style="width: 100%; height: 38px; border: 1px solid #ddd; border-radius: 5px; cursor: pointer;"
-                       onclick="refreshCaptcha()">
-                  <div id="captchaLoading" class="text-center" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    style="width: 100%; height: 38px; border: 1px solid #ddd; border-radius: 5px; cursor: pointer;"
+                    onclick="refreshCaptcha()">
+                  <div id="captchaLoading" class="text-center"
+                    style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                     <div class="spinner-border spinner-border-sm" role="status"></div>
                   </div>
                 </div>
@@ -197,7 +200,8 @@
           <!-- 邮箱验证码 -->
           <div class="input-group">
             <input type="text" class="form-control" id="verificationCode" placeholder="输入6位验证码" maxlength="6">
-            <button type="button" class="btn btn-outline-secondary" id="sendCodeBtn" onclick="sendVerificationCode()" disabled>
+            <button type="button" class="btn btn-outline-secondary" id="sendCodeBtn" onclick="sendVerificationCode()"
+              disabled>
               发送验证码
             </button>
           </div>
@@ -226,7 +230,7 @@
       </div>
 
       <!-- 默认账号提示 -->
-      <div id="defaultLoginInfo" class="mt-4 p-3 bg-light rounded-3">
+      <!-- <div id="defaultLoginInfo" class="mt-4 p-3 bg-light rounded-3">
         <div class="text-center">
           <small class="text-muted">
             <i class="bi bi-info-circle me-1"></i>
@@ -249,7 +253,7 @@
             使用默认账号
           </button>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
@@ -261,16 +265,16 @@
     const errorMessage = document.getElementById('errorMessage');
     const loading = document.querySelector('.loading');
     const loginText = document.getElementById('loginText');
-    
+
     function showError(message) {
       errorMessage.textContent = message;
       errorAlert.classList.remove('d-none');
     }
-    
+
     function hideError() {
       errorAlert.classList.add('d-none');
     }
-    
+
     function setLoading(isLoading) {
       if (isLoading) {
         loading.classList.add('show');
@@ -301,7 +305,7 @@
         passwordInput.style.backgroundColor = '';
       }, 1000);
     }
-    
+
     loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       hideError();
@@ -405,7 +409,7 @@
         setLoading(false);
       }
     });
-    
+
     // 检查是否已经登录
     const token = localStorage.getItem('auth_token');
     if (token) {
@@ -415,16 +419,16 @@
           'Authorization': `Bearer ${token}`
         }
       })
-      .then(response => response.json())
-      .then(result => {
-        if (result.authenticated) {
-          window.location.href = '/admin';
-        }
-      })
-      .catch(() => {
-        // token无效，清除
-        localStorage.removeItem('auth_token');
-      });
+        .then(response => response.json())
+        .then(result => {
+          if (result.authenticated) {
+            window.location.href = '/admin';
+          }
+        })
+        .catch(() => {
+          // token无效，清除
+          localStorage.removeItem('auth_token');
+        });
     }
 
     // 登录方式切换相关变量
@@ -679,7 +683,7 @@
     }
 
     // 事件监听器
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // 检查注册状态
       checkRegistrationStatus();
 
@@ -694,7 +698,7 @@
       // 图形验证码输入框事件
       const captchaCodeInput = document.getElementById('captchaCode');
       if (captchaCodeInput) {
-        captchaCodeInput.addEventListener('input', function() {
+        captchaCodeInput.addEventListener('input', function () {
           if (this.value.length === 4) {
             verifyCaptcha();
           } else {
@@ -713,4 +717,5 @@
     });
   </script>
 </body>
+
 </html>

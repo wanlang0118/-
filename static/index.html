@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>闲鱼自动回复管理系统</title>
   <link rel="stylesheet" href="/static/lib/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="/static/lib/bootstrap-icons/bootstrap-icons.css">
-  
+
   <link rel="stylesheet" href="/static/css/app.css">
 </head>
+
 <body>
   <!-- 移动端菜单切换按钮 -->
   <button class="mobile-toggle" onclick="toggleSidebar()">
@@ -162,7 +164,8 @@
             <p class="text-muted mb-0">系统概览和统计信息</p>
           </div>
           <div class="version-info d-flex gap-2">
-            <span class="badge bg-primary" id="projectUsers" style="cursor: pointer;" onclick="showProjectStats()" title="点击查看详细统计">
+            <span class="badge bg-primary" id="projectUsers" style="cursor: pointer;" onclick="showProjectStats()"
+              title="点击查看详细统计">
               <i class="bi bi-people me-1"></i>
               使用人数: <span id="totalUsers">加载中...</span>
             </span>
@@ -254,13 +257,15 @@
             <div class="row mb-4">
               <div class="col-12">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                  <button type="button" class="btn btn-lg me-md-2 flex-fill qr-login-btn" onclick="showQRCodeLogin()" style="max-width: 300px;">
+                  <button type="button" class="btn btn-lg me-md-2 flex-fill qr-login-btn" onclick="showQRCodeLogin()"
+                    style="max-width: 300px;">
                     <i class="bi bi-qr-code me-2"></i>
                     <span class="fw-bold">扫码登录</span>
                     <br>
                     <small class="opacity-75">推荐方式</small>
                   </button>
-                  <button type="button" class="btn btn-outline-secondary btn-lg flex-fill manual-input-btn" onclick="toggleManualInput()" style="max-width: 300px;">
+                  <button type="button" class="btn btn-outline-secondary btn-lg flex-fill manual-input-btn"
+                    onclick="toggleManualInput()" style="max-width: 300px;">
                     <i class="bi bi-keyboard me-2"></i>
                     <span class="fw-bold">手动输入</span>
                     <br>
@@ -326,10 +331,8 @@
                     <th style="width: 10%">备注</th>
                     <th style="width: 10%">
                       暂停时间
-                      <i class="bi bi-question-circle ms-1"
-                         data-bs-toggle="tooltip"
-                         data-bs-placement="top"
-                         title="检测到手动发出消息后，自动回复暂停的时间长度（分钟）。设置为0表示不暂停。如果在暂停期间再次手动发出消息，会重新开始计时。"></i>
+                      <i class="bi bi-question-circle ms-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="检测到手动发出消息后，自动回复暂停的时间长度（分钟）。设置为0表示不暂停。如果在暂停期间再次手动发出消息，会重新开始计时。"></i>
                     </th>
                     <th style="width: 18%">操作</th>
                   </tr>
@@ -369,7 +372,8 @@
                   <!-- 页码输入 -->
                   <div class="d-flex align-items-center gap-2">
                     <label for="pageNumber" class="form-label mb-0 text-nowrap">页码:</label>
-                    <input type="number" class="form-control" id="pageNumber" placeholder="页码" min="1" value="1" style="width: 80px;">
+                    <input type="number" class="form-control" id="pageNumber" placeholder="页码" min="1" value="1"
+                      style="width: 80px;">
                   </div>
                   <div class="d-flex gap-2">
                     <button class="btn btn-success" onclick="getAllItemsFromAccount()">
@@ -398,8 +402,8 @@
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center gap-3">
-              <input type="text" class="form-control" id="itemSearchInput"
-                     placeholder="搜索商品标题或详情..." style="width: 300px;">
+              <input type="text" class="form-control" id="itemSearchInput" placeholder="搜索商品标题或详情..."
+                style="width: 300px;">
               <h5 class="mb-0">商品列表(自动发货根据商品标题和商品详情匹配关键字)</h5>
             </div>
             <button class="btn btn-sm btn-outline-danger" onclick="batchDeleteItems()" id="batchDeleteBtn" disabled>
@@ -447,26 +451,30 @@
               </div>
               <div class="d-flex align-items-center gap-2">
                 <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-outline-secondary btn-sm" id="itemsFirstPage" onclick="goToItemsPage(1)" disabled>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="itemsFirstPage"
+                    onclick="goToItemsPage(1)" disabled>
                     <i class="bi bi-chevron-double-left"></i>
                   </button>
-                  <button type="button" class="btn btn-outline-secondary btn-sm" id="itemsPrevPage" onclick="goToItemsPage(currentItemsPage - 1)" disabled>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="itemsPrevPage"
+                    onclick="goToItemsPage(currentItemsPage - 1)" disabled>
                     <i class="bi bi-chevron-left"></i>
                   </button>
                 </div>
 
                 <div class="d-flex align-items-center gap-2 mx-2">
                   <span class="text-muted small">第</span>
-                  <input type="number" class="form-control form-control-sm" id="itemsPageInput"
-                         style="width: 60px;" min="1" value="1">
+                  <input type="number" class="form-control form-control-sm" id="itemsPageInput" style="width: 60px;"
+                    min="1" value="1">
                   <span class="text-muted small">页，共 <span id="itemsTotalPages">0</span> 页</span>
                 </div>
 
                 <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-outline-secondary btn-sm" id="itemsNextPage" onclick="goToItemsPage(currentItemsPage + 1)" disabled>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="itemsNextPage"
+                    onclick="goToItemsPage(currentItemsPage + 1)" disabled>
                     <i class="bi bi-chevron-right"></i>
                   </button>
-                  <button type="button" class="btn btn-outline-secondary btn-sm" id="itemsLastPage" onclick="goToItemsPage(totalItemsPages)" disabled>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="itemsLastPage"
+                    onclick="goToItemsPage(totalItemsPages)" disabled>
                     <i class="bi bi-chevron-double-right"></i>
                   </button>
                 </div>
@@ -484,7 +492,7 @@
       </div>
     </div>
 
-     <!-- 指定商品自动管理内容 -->
+    <!-- 指定商品自动管理内容 -->
     <div id="items-reply-section" class="content-section">
       <div class="content-header">
         <h2 class="mb-0">
@@ -510,7 +518,8 @@
                   <!-- 页码输入 -->
                   <div class="d-flex align-items-center gap-2">
                     <label for="pageNumber" class="form-label mb-0 text-nowrap">页码:</label>
-                    <input type="number" class="form-control" id="pageNumber" placeholder="页码" min="1" value="1" style="width: 80px;">
+                    <input type="number" class="form-control" id="pageNumber" placeholder="页码" min="1" value="1"
+                      style="width: 80px;">
                   </div>
                   <div class="d-flex gap-2">
                     <button class="btn btn-success" onclick="showItemReplayEdit()">
@@ -563,59 +572,59 @@
       </div>
     </div>
 
-      <!-- 商品回复弹框 -->
-  <!-- 添加/编辑商品回复模态框 -->
-  <div class="modal fade" id="editItemReplyModal" tabindex="-1">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">
-            <i class="bi bi-chat-text me-2"></i><span id="itemReplayTitle">编辑商品回复</span>
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <form id="editItemReplyForm">
-            <input type="hidden" id="editReplyCookieId">
-            <input type="hidden" id="editReplyItemId">
+    <!-- 商品回复弹框 -->
+    <!-- 添加/编辑商品回复模态框 -->
+    <div class="modal fade" id="editItemReplyModal" tabindex="-1">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <i class="bi bi-chat-text me-2"></i><span id="itemReplayTitle">编辑商品回复</span>
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form id="editItemReplyForm">
+              <input type="hidden" id="editReplyCookieId">
+              <input type="hidden" id="editReplyItemId">
 
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <label class="form-label">账号ID<span class="text-danger">*</span></label>
-                <select id="editReplyCookieIdSelect" class="form-select" onchange="onCookieChangeForReply()">
-                  <option value="">请选择账号</option>
-                  <!-- JS 动态填充账号选项 -->
-                </select>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label">账号ID<span class="text-danger">*</span></label>
+                  <select id="editReplyCookieIdSelect" class="form-select" onchange="onCookieChangeForReply()">
+                    <option value="">请选择账号</option>
+                    <!-- JS 动态填充账号选项 -->
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">商品ID<span class="text-danger">*</span></label>
+                  <select id="editReplyItemIdSelect" class="form-select">
+                    <option value="">选择商品</option>
+                    <!-- JS 动态填充商品选项 -->
+                  </select>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label">商品ID<span class="text-danger">*</span></label>
-                <select id="editReplyItemIdSelect" class="form-select">
-                  <option value="">选择商品</option>
-                  <!-- JS 动态填充商品选项 -->
-                </select>
-              </div>
-            </div>
 
-            <div class="mb-3">
-              <label for="editReplyContent" class="form-label">商品回复内容 <span class="text-danger">*</span></label>
-              <textarea class="form-control" id="editItemReplyContent" rows="10"
-                        placeholder="请输入商品回复内容..."></textarea>
-              <div class="form-text">
-                <i class="bi bi-info-circle me-1"></i>
-                请输入商品的自动回复内容。
+              <div class="mb-3">
+                <label for="editReplyContent" class="form-label">商品回复内容 <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="editItemReplyContent" rows="10"
+                  placeholder="请输入商品回复内容..."></textarea>
+                <div class="form-text">
+                  <i class="bi bi-info-circle me-1"></i>
+                  请输入商品的自动回复内容。
+                </div>
               </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary" onclick="saveItemReply()">
-            <i class="bi bi-check-circle me-1"></i>保存
-          </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" onclick="saveItemReply()">
+              <i class="bi bi-check-circle me-1"></i>保存
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 
     <!-- 订单管理内容 -->
@@ -665,11 +674,12 @@
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center gap-3">
-              <input type="text" class="form-control" id="orderSearchInput"
-                     placeholder="搜索订单ID或商品ID..." style="width: 300px;">
+              <input type="text" class="form-control" id="orderSearchInput" placeholder="搜索订单ID或商品ID..."
+                style="width: 300px;">
               <h5 class="mb-0">订单列表</h5>
             </div>
-            <button class="btn btn-sm btn-outline-danger" onclick="batchDeleteOrders()" id="batchDeleteOrdersBtn" disabled>
+            <button class="btn btn-sm btn-outline-danger" onclick="batchDeleteOrders()" id="batchDeleteOrdersBtn"
+              disabled>
               <i class="bi bi-trash"></i> 批量删除
             </button>
           </div>
@@ -714,26 +724,30 @@
               </div>
               <div class="d-flex align-items-center gap-2">
                 <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-outline-secondary btn-sm" id="ordersFirstPage" onclick="goToOrdersPage(1)" disabled>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="ordersFirstPage"
+                    onclick="goToOrdersPage(1)" disabled>
                     <i class="bi bi-chevron-double-left"></i>
                   </button>
-                  <button type="button" class="btn btn-outline-secondary btn-sm" id="ordersPrevPage" onclick="goToOrdersPage(currentOrdersPage - 1)" disabled>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="ordersPrevPage"
+                    onclick="goToOrdersPage(currentOrdersPage - 1)" disabled>
                     <i class="bi bi-chevron-left"></i>
                   </button>
                 </div>
 
                 <div class="d-flex align-items-center gap-2 mx-2">
                   <span class="text-muted small">第</span>
-                  <input type="number" class="form-control form-control-sm" id="ordersPageInput"
-                         style="width: 60px;" min="1" value="1">
+                  <input type="number" class="form-control form-control-sm" id="ordersPageInput" style="width: 60px;"
+                    min="1" value="1">
                   <span class="text-muted small">页，共 <span id="ordersTotalPages">0</span> 页</span>
                 </div>
 
                 <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-outline-secondary btn-sm" id="ordersNextPage" onclick="goToOrdersPage(currentOrdersPage + 1)" disabled>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="ordersNextPage"
+                    onclick="goToOrdersPage(currentOrdersPage + 1)" disabled>
                     <i class="bi bi-chevron-right"></i>
                   </button>
-                  <button type="button" class="btn btn-outline-secondary btn-sm" id="ordersLastPage" onclick="goToOrdersPage(totalOrdersPages)" disabled>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="ordersLastPage"
+                    onclick="goToOrdersPage(totalOrdersPages)" disabled>
                     <i class="bi bi-chevron-double-right"></i>
                   </button>
                 </div>
@@ -781,7 +795,8 @@
               </div>
             </div>
             <div class="col-md-4">
-              <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center" onclick="refreshAccountList()" style="padding: 1rem 1.25rem; height: auto;">
+              <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center"
+                onclick="refreshAccountList()" style="padding: 1rem 1.25rem; height: auto;">
                 <i class="bi bi-arrow-clockwise me-2"></i>
                 <span>刷新列表</span>
               </button>
@@ -1299,7 +1314,8 @@
                   <span class="badge bg-info filter-badge" data-level="info" onclick="filterLogsByLevel('info')">
                     INFO
                   </span>
-                  <span class="badge bg-warning filter-badge" data-level="warning" onclick="filterLogsByLevel('warning')">
+                  <span class="badge bg-warning filter-badge" data-level="warning"
+                    onclick="filterLogsByLevel('warning')">
                     WARNING
                   </span>
                   <span class="badge bg-danger filter-badge" data-level="error" onclick="filterLogsByLevel('error')">
@@ -1313,7 +1329,8 @@
               <div class="col-md-3">
                 <label class="form-label">自动刷新</label>
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="autoRefreshLogs" onchange="toggleLogAutoRefresh()">
+                  <input class="form-check-input" type="checkbox" id="autoRefreshLogs"
+                    onchange="toggleLogAutoRefresh()">
                   <label class="form-check-label" for="autoRefreshLogs">
                     <span id="autoRefreshLogLabel">关闭</span>
                     <i id="autoRefreshLogIcon" class="bi bi-circle" style="display: none;"></i>
@@ -1429,16 +1446,20 @@
               <div class="col-md-3">
                 <label class="form-label">处理状态</label>
                 <div class="d-flex gap-2 flex-wrap">
-                  <span class="badge bg-secondary filter-badge active" data-status="" onclick="filterRiskLogsByStatus('')">
+                  <span class="badge bg-secondary filter-badge active" data-status=""
+                    onclick="filterRiskLogsByStatus('')">
                     全部
                   </span>
-                  <span class="badge bg-warning filter-badge" data-status="processing" onclick="filterRiskLogsByStatus('processing')">
+                  <span class="badge bg-warning filter-badge" data-status="processing"
+                    onclick="filterRiskLogsByStatus('processing')">
                     处理中
                   </span>
-                  <span class="badge bg-success filter-badge" data-status="success" onclick="filterRiskLogsByStatus('success')">
+                  <span class="badge bg-success filter-badge" data-status="success"
+                    onclick="filterRiskLogsByStatus('success')">
                     成功
                   </span>
-                  <span class="badge bg-danger filter-badge" data-status="failed" onclick="filterRiskLogsByStatus('failed')">
+                  <span class="badge bg-danger filter-badge" data-status="failed"
+                    onclick="filterRiskLogsByStatus('failed')">
                     失败
                   </span>
                 </div>
@@ -1551,7 +1572,8 @@
                 </div>
                 <div class="col-md-3">
                   <label for="searchTotalPages" class="form-label">查询总页数</label>
-                  <input type="number" class="form-control" id="searchTotalPages" value="1" min="1" max="20" placeholder="输入页数">
+                  <input type="number" class="form-control" id="searchTotalPages" value="1" min="1" max="20"
+                    placeholder="输入页数">
                 </div>
                 <div class="col-md-2">
                   <label for="searchPageSize" class="form-label">每页显示</label>
@@ -1734,9 +1756,9 @@
                         <strong>QQ回复消息API秘钥</strong>
                       </label>
                       <div class="input-group">
-                        <input type="password" class="form-control" id="qqReplySecretKey"
-                               placeholder="请输入QQ回复消息API秘钥">
-                        <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('qqReplySecretKey')">
+                        <input type="password" class="form-control" id="qqReplySecretKey" placeholder="请输入QQ回复消息API秘钥">
+                        <button class="btn btn-outline-secondary" type="button"
+                          onclick="togglePasswordVisibility('qqReplySecretKey')">
                           <i class="bi bi-eye" id="qqReplySecretKey-icon"></i>
                         </button>
                       </div>
@@ -2146,10 +2168,10 @@
           <div class="col-md-6">
             <div class="card">
               <div class="card-header">
-                <i class="bi bi-wechat me-2"></i>微信群
+                <i class="bi bi-wechat me-2"></i>微信打赏
               </div>
               <div class="card-body text-center">
-                <img src="/static/wechat-group.png" alt="微信群二维码" class="img-fluid" style="max-width: 200px;">
+                <img src="/static/wechat-group.png" alt="微信打赏二维码" class="img-fluid" style="max-width: 200px;">
                 <p class="mt-3 text-muted">扫码加入微信技术交流群</p>
               </div>
             </div>
@@ -2157,10 +2179,10 @@
           <div class="col-md-6">
             <div class="card">
               <div class="card-header">
-                <i class="bi bi-chat-square me-2"></i>QQ群
+                <i class="bi bi-chat-square me-2"></i>QQ打赏
               </div>
               <div class="card-body text-center">
-                <img src="/static/qq-group.png" alt="QQ群二维码" class="img-fluid" style="max-width: 200px;">
+                <img src="/static/qq-group.png" alt="QQ打赏二维码" class="img-fluid" style="max-width: 200px;">
                 <p class="mt-3 text-muted">扫码加入QQ技术交流群</p>
               </div>
             </div>
@@ -2187,17 +2209,23 @@
             <div class="col-12">
               <div class="d-flex justify-content-center align-items-center">
                 <div class="step-item me-3">
-                  <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">1</div>
+                  <div
+                    class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                    style="width: 30px; height: 30px;">1</div>
                   <small class="d-block mt-1">打开闲鱼APP</small>
                 </div>
                 <i class="bi bi-arrow-right text-muted me-3"></i>
                 <div class="step-item me-3">
-                  <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">2</div>
+                  <div
+                    class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                    style="width: 30px; height: 30px;">2</div>
                   <small class="d-block mt-1">扫描二维码</small>
                 </div>
                 <i class="bi bi-arrow-right text-muted me-3"></i>
                 <div class="step-item">
-                  <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">3</div>
+                  <div
+                    class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                    style="width: 30px; height: 30px;">3</div>
                   <small class="d-block mt-1">自动添加账号</small>
                 </div>
               </div>
@@ -2231,7 +2259,8 @@
           <!-- 状态显示 -->
           <div id="qrCodeStatus" class="mt-3">
             <div class="d-flex align-items-center justify-content-center">
-              <div class="spinner-border spinner-border-sm text-success me-2" role="status" style="display: none;" id="statusSpinner">
+              <div class="spinner-border spinner-border-sm text-success me-2" role="status" style="display: none;"
+                id="statusSpinner">
                 <span class="visually-hidden">检查中...</span>
               </div>
               <span id="statusText" class="text-muted">等待扫码...</span>
@@ -2449,11 +2478,13 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label">请求头 (JSON格式)</label>
-                  <textarea class="form-control" id="apiHeaders" rows="3" placeholder='{"Authorization": "Bearer token", "Content-Type": "application/json"}'></textarea>
+                  <textarea class="form-control" id="apiHeaders" rows="3"
+                    placeholder='{"Authorization": "Bearer token", "Content-Type": "application/json"}'></textarea>
                 </div>
                 <div class="mb-3">
                   <label class="form-label">请求参数 (JSON格式)</label>
-                  <textarea class="form-control" id="apiParams" rows="3" placeholder='{"type": "card", "count": 1}'></textarea>
+                  <textarea class="form-control" id="apiParams" rows="3"
+                    placeholder='{"type": "card", "count": 1}'></textarea>
 
                   <!-- POST类型参数提示 -->
                   <div id="postParamsHelp" class="mt-2" style="display: none;">
@@ -2539,7 +2570,8 @@
               <div class="card-body">
                 <div class="mb-3">
                   <label class="form-label">数据内容 (一行一个)</label>
-                  <textarea class="form-control" id="dataContent" rows="10" placeholder="请输入数据，每行一个：&#10;卡号1:密码1&#10;卡号2:密码2&#10;或者&#10;兑换码1&#10;兑换码2"></textarea>
+                  <textarea class="form-control" id="dataContent" rows="10"
+                    placeholder="请输入数据，每行一个：&#10;卡号1:密码1&#10;卡号2:密码2&#10;或者&#10;兑换码1&#10;兑换码2"></textarea>
                   <small class="form-text text-muted">支持格式：卡号:密码 或 单独的兑换码</small>
                 </div>
               </div>
@@ -2564,7 +2596,7 @@
                   <label class="form-label">图片预览</label>
                   <div class="preview-container">
                     <img id="cardPreviewImg" src="" alt="预览图片"
-                         style="max-width: 100%; max-height: 300px; border-radius: 8px; border: 1px solid #ddd;">
+                      style="max-width: 100%; max-height: 300px; border-radius: 8px; border: 1px solid #ddd;">
                   </div>
                 </div>
               </div>
@@ -2573,7 +2605,8 @@
             <div class="mb-3">
               <label class="form-label">延时发货时间</label>
               <div class="input-group">
-                <input type="number" class="form-control" id="cardDelaySeconds" value="0" min="0" max="3600" placeholder="0">
+                <input type="number" class="form-control" id="cardDelaySeconds" value="0" min="0" max="3600"
+                  placeholder="0">
                 <span class="input-group-text">秒</span>
               </div>
               <small class="form-text text-muted">
@@ -2584,7 +2617,8 @@
 
             <div class="mb-3">
               <label class="form-label">备注信息</label>
-              <textarea class="form-control" id="cardDescription" rows="3" placeholder="可选的备注信息，支持变量替换：&#10;{DELIVERY_CONTENT} - 发货内容&#10;例如：您的卡券信息：{DELIVERY_CONTENT}，请妥善保管。"></textarea>
+              <textarea class="form-control" id="cardDescription" rows="3"
+                placeholder="可选的备注信息，支持变量替换：&#10;{DELIVERY_CONTENT} - 发货内容&#10;例如：您的卡券信息：{DELIVERY_CONTENT}，请妥善保管。"></textarea>
               <small class="form-text text-muted">
                 <i class="bi bi-info-circle me-1"></i>
                 备注内容会与发货内容一起发送。使用 <code>{DELIVERY_CONTENT}</code> 变量可以在备注中插入实际的发货内容。
@@ -2799,7 +2833,7 @@
                   <label class="form-label">当前图片</label>
                   <div id="editCurrentImagePreview" style="display: none;">
                     <img id="editCurrentImg" src="" alt="当前图片"
-                         style="max-width: 100%; max-height: 200px; border-radius: 8px; border: 1px solid #ddd;">
+                      style="max-width: 100%; max-height: 200px; border-radius: 8px; border: 1px solid #ddd;">
                     <div class="mt-2">
                       <small class="text-muted">当前使用的图片</small>
                     </div>
@@ -2822,7 +2856,7 @@
                   <label class="form-label">新图片预览</label>
                   <div class="preview-container">
                     <img id="editCardPreviewImg" src="" alt="预览图片"
-                         style="max-width: 100%; max-height: 300px; border-radius: 8px; border: 1px solid #ddd;">
+                      style="max-width: 100%; max-height: 300px; border-radius: 8px; border: 1px solid #ddd;">
                   </div>
                 </div>
               </div>
@@ -2840,7 +2874,8 @@
             <div class="mb-3">
               <label class="form-label">延时发货时间</label>
               <div class="input-group">
-                <input type="number" class="form-control" id="editCardDelaySeconds" value="0" min="0" max="3600" placeholder="0">
+                <input type="number" class="form-control" id="editCardDelaySeconds" value="0" min="0" max="3600"
+                  placeholder="0">
                 <span class="input-group-text">秒</span>
               </div>
               <small class="form-text text-muted">
@@ -2851,7 +2886,8 @@
 
             <div class="mb-3">
               <label class="form-label">备注信息</label>
-              <textarea class="form-control" id="editCardDescription" rows="3" placeholder="可选的备注信息，支持变量替换：&#10;{DELIVERY_CONTENT} - 发货内容&#10;例如：您的卡券信息：{DELIVERY_CONTENT}，请妥善保管。"></textarea>
+              <textarea class="form-control" id="editCardDescription" rows="3"
+                placeholder="可选的备注信息，支持变量替换：&#10;{DELIVERY_CONTENT} - 发货内容&#10;例如：您的卡券信息：{DELIVERY_CONTENT}，请妥善保管。"></textarea>
               <small class="form-text text-muted">
                 <i class="bi bi-info-circle me-1"></i>
                 备注内容会与发货内容一起发送。使用 <code>{DELIVERY_CONTENT}</code> 变量可以在备注中插入实际的发货内容。
@@ -2861,7 +2897,8 @@
             <!-- 多规格设置 -->
             <div class="mb-3">
               <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="editIsMultiSpec" onchange="toggleEditMultiSpecFields()">
+                <input class="form-check-input" type="checkbox" id="editIsMultiSpec"
+                  onchange="toggleEditMultiSpecFields()">
                 <label class="form-check-label" for="editIsMultiSpec">
                   <strong>多规格卡券</strong>
                 </label>
@@ -3019,7 +3056,8 @@
   <script src="/static/js/app.js?v=2.2.0"></script>
 
   <!-- 默认回复管理模态框 -->
-  <div class="modal fade" id="defaultReplyModal" tabindex="-1" aria-labelledby="defaultReplyModalLabel" aria-hidden="true">
+  <div class="modal fade" id="defaultReplyModal" tabindex="-1" aria-labelledby="defaultReplyModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
@@ -3069,7 +3107,8 @@
   </div>
 
   <!-- 编辑默认回复模态框 -->
-  <div class="modal fade" id="editDefaultReplyModal" tabindex="-1" aria-labelledby="editDefaultReplyModalLabel" aria-hidden="true">
+  <div class="modal fade" id="editDefaultReplyModal" tabindex="-1" aria-labelledby="editDefaultReplyModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -3089,7 +3128,8 @@
 
             <div class="mb-3">
               <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="editDefaultReplyEnabled" onchange="toggleReplyContentVisibility()" />
+                <input class="form-check-input" type="checkbox" id="editDefaultReplyEnabled"
+                  onchange="toggleReplyContentVisibility()" />
                 <label class="form-check-label" for="editDefaultReplyEnabled">
                   启用默认回复
                 </label>
@@ -3160,8 +3200,7 @@
 
             <div class="mb-3">
               <label for="editItemDetail" class="form-label">商品详情 <span class="text-danger">*</span></label>
-              <textarea class="form-control" id="editItemDetail" rows="20"
-                        placeholder="请输入商品详情内容..."></textarea>
+              <textarea class="form-control" id="editItemDetail" rows="20" placeholder="请输入商品详情内容..."></textarea>
               <div class="form-text">
                 <i class="bi bi-info-circle me-1"></i>
                 请输入商品详情内容，这些内容将用于自动发货时的关键词匹配。
@@ -3179,7 +3218,7 @@
     </div>
   </div>
 
-  
+
 
   <!-- AI回复配置模态框 -->
   <div class="modal fade" id="aiReplyConfigModal" tabindex="-1">
@@ -3261,23 +3300,20 @@
                   <div class="col-md-4">
                     <label for="maxDiscountPercent" class="form-label">最大优惠百分比</label>
                     <div class="input-group">
-                      <input type="number" class="form-control" id="maxDiscountPercent"
-                             min="0" max="50" value="10">
+                      <input type="number" class="form-control" id="maxDiscountPercent" min="0" max="50" value="10">
                       <span class="input-group-text">%</span>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <label for="maxDiscountAmount" class="form-label">最大优惠金额</label>
                     <div class="input-group">
-                      <input type="number" class="form-control" id="maxDiscountAmount"
-                             min="0" value="100">
+                      <input type="number" class="form-control" id="maxDiscountAmount" min="0" value="100">
                       <span class="input-group-text">元</span>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <label for="maxBargainRounds" class="form-label">最大议价轮数</label>
-                    <input type="number" class="form-control" id="maxBargainRounds"
-                           min="1" max="10" value="3">
+                    <input type="number" class="form-control" id="maxBargainRounds" min="1" max="10" value="3">
                   </div>
                 </div>
               </div>
@@ -3292,7 +3328,7 @@
                 <div class="mb-3">
                   <label class="form-label">自定义提示词 (JSON格式)</label>
                   <textarea class="form-control" id="customPrompts" rows="8"
-                            placeholder='{"classify": "分类提示词", "price": "议价提示词", "tech": "技术提示词", "default": "默认提示词"}'></textarea>
+                    placeholder='{"classify": "分类提示词", "price": "议价提示词", "tech": "技术提示词", "default": "默认提示词"}'></textarea>
                   <small class="form-text text-muted">
                     留空使用系统默认提示词。格式：{"classify": "...", "price": "...", "tech": "...", "default": "..."}
                   </small>
@@ -3309,13 +3345,11 @@
                 <div class="row mb-3">
                   <div class="col-md-6">
                     <label for="testMessage" class="form-label">测试消息</label>
-                    <input type="text" class="form-control" id="testMessage"
-                           value="你好，这个商品能便宜点吗？" placeholder="输入测试消息">
+                    <input type="text" class="form-control" id="testMessage" value="你好，这个商品能便宜点吗？" placeholder="输入测试消息">
                   </div>
                   <div class="col-md-6">
                     <label for="testItemPrice" class="form-label">商品价格</label>
-                    <input type="number" class="form-control" id="testItemPrice"
-                           value="100" placeholder="商品价格">
+                    <input type="number" class="form-control" id="testItemPrice" value="100" placeholder="商品价格">
                   </div>
                 </div>
                 <button type="button" class="btn btn-outline-primary" onclick="testAIReply()">
@@ -3425,7 +3459,8 @@
                   <div class="image-preview" id="imagePreview" style="display: none;">
                     <label class="form-label">图片预览</label>
                     <div class="preview-container">
-                      <img id="previewImg" src="" alt="预览图片" style="max-width: 100%; max-height: 200px; border-radius: 8px; border: 1px solid #ddd;">
+                      <img id="previewImg" src="" alt="预览图片"
+                        style="max-width: 100%; max-height: 200px; border-radius: 8px; border: 1px solid #ddd;">
                     </div>
                   </div>
                 </div>
@@ -3529,31 +3564,33 @@
         <div class="modal-body">
           <form id="accountEditForm">
             <input type="hidden" id="editAccountId">
-            
+
             <div class="mb-3">
               <label class="form-label">Cookie <span class="text-danger">*</span></label>
-              <textarea class="form-control" id="editAccountCookie" rows="3" placeholder="输入Cookie值" required></textarea>
+              <textarea class="form-control" id="editAccountCookie" rows="3" placeholder="输入Cookie值"
+                required></textarea>
               <div class="form-text">账号的Cookie值，用于身份认证</div>
             </div>
-            
+
             <div class="mb-3">
               <label class="form-label">用户名</label>
               <input type="text" class="form-control" id="editAccountUsername" placeholder="输入用户名（可选）">
               <div class="form-text">用于密码登录的用户名</div>
             </div>
-            
+
             <div class="mb-3">
               <label class="form-label">密码</label>
               <input type="password" class="form-control" id="editAccountPassword" placeholder="输入密码（可选）">
               <div class="form-text">用于密码登录的密码</div>
             </div>
-            
+
             <div class="mb-3">
               <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="editAccountShowBrowser">
                 <label class="form-check-label" for="editAccountShowBrowser">
                   显示浏览器
-                  <i class="bi bi-info-circle text-info ms-1" data-bs-toggle="tooltip" title="使用用户名密码登录的时候浏览器可见，仅限Windows源码部署打开该开关"></i>
+                  <i class="bi bi-info-circle text-info ms-1" data-bs-toggle="tooltip"
+                    title="使用用户名密码登录的时候浏览器可见，仅限Windows源码部署打开该开关"></i>
                 </label>
               </div>
               <div class="form-text text-warning">
@@ -3561,7 +3598,7 @@
                 使用用户名密码登录的时候浏览器可见，仅限Windows源码部署打开该开关，开关打开密码登录会停留5分钟，防止第一次登录需要人脸，成功一次之后后续可关闭开关
               </div>
             </div>
-            
+
             <div class="alert alert-info">
               <i class="bi bi-info-circle me-2"></i>
               <strong>提示：</strong>
@@ -3584,4 +3621,5 @@
   </div>
 
 </body>
+
 </html>
